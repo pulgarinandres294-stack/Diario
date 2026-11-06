@@ -1,145 +1,33 @@
-28/10/2026
+4/11/2026
 
-importaciones de bibliotecas
-Crear arreglos con NuPy
-import numpy as  np 
+lo que debo saber de pandas
 
-ceros = np.zeros(5)
-print(ceros)
+DataFrame 
 
-[0. 0. 0. 0. 0.]
+tabla con nombres, cada columna es una serie
 
+Mirar Antes de Analizar 
 
-arreglos de unos en dos dimensiones 
+shape, head, info, describe
 
-unos_2d = np.ones((4,2))
-print(unos_2d)[[1. 1.]
+Filtra con mascaras 
 
- [1. 1.]
- [1. 1.]
- [1. 1.]]
+la misma lógica de NumPy
 
-arreglos con saltos definidos 
+Limpia y Justifica 
 
-pasos_2 = np.arange(0,10,3)
-print(pasos_2)
+faltantes y duplicados; decide y repórtalo
 
-[0 3 6 9]
+Agrupa para responder
 
-arreglos con valores igualmente espaciados
+groupby = dividir, aplicar, combinar 
 
-listas_1 = np.linspace(0,1,6)
-print(listas_1) 
+DE LA PREGUNTA A CODIGO 
 
-[0.  0.2 0.4 0.6 0.8 1. ]
+cuantos datos tengo y de que tipo? = df.shape , df.info
+como es una variable numérica = df["nota"].describe()
+cuantos hay por categoría? = df["programa"].value_counts()
+quienes tienen la mejor nota? = df.sort_values("nota", ascending=false)
+cual es el promedio por grupo? = df.groupby("programa")("nota).mean()
 
-generar números aleatorios con distribución normal 
-
-np.random.normal(10,5,30).round(2)
-print(juego)
-
-arreglos bidimensionales 
-
-notas = np.array([[4.0, 3.5, 2.8, 3.9],
-                  [3.2, 4.5, 3.9, 4.1],
-                  [2.5, 3.0, 4.2, 3.5]])
-
-print(notas)
-
-[[4.  3.5 2.8 3.9]
- [3.2 4.5 3.9 4.1]
- [2.5 3.  4.2 3.5]]
-
-propiedades de los arreglos 
-
-print("la forma del arreglo es", notas.shape)
-print("la dimensión del arreglo es", notas.ndim)
-print("la cantidad de elementos es", notas.size)
-print("el tipo de variable es", notas.dtype)
-
-la forma del arreglo es (3, 4)
-la dimensión del arreglo es 2
-la cantidad de elementos es 12
-el tipo de variable es float64
-
-copiar arreglos
-
-a = np.array([1,2,3,4,5])
-b = a[1:4].copy()
-
-b[0] = 99
-
-print(b)
-print(a)
-
-[99  3  4]
-[1 2 3 4 5]
-
-Vectorizacon de arreglos
-
-a = np.array([1,2,3])
-b = np.array([10,20,30])
-
-print("VECTORIZACION")
-print("la suma de arreglos es", a+b)
-print("la resta de arreglos es", a-b)
-print("la division de los arreglos es", a/b)
-print("la multiplicacion de un arreglo por un numero", b*3.5)
-print("la potencia del arreglo es", b**3) 
-
-VECTORIZACION
-la suma de arreglos es [11 22 33]
-la resta de arreglos es [ -9 -18 -27]
-la division de los arreglos es [0.1 0.1 0.1]
-la multiplicacion de un arreglo por un numero [ 35.  70. 105.]
-la potencia del arreglo es [ 1000  8000 27000]
-
-arreglo bidimensional
-
-m = np.array([[1,2,3],
-              [4,5,6]])
-
-v = np.array([10,20,30])
-
-print(m+v)
-
-[[11 22 33]
- [14 25 36]]
-
-
-
-ejemplos 
-arreglos NumPy y mascaras booleanas 
-
-notas_arreglo = np.array([3.2, 4.5, 2.8, 3.9, 2.1])
-print(notas_arreglo >= 3)  # máscara booleana
-
-[ True  True False  True False]
-
-Operaciones estadísticas con NomPy 
-
-notas_arreglo1 = np.array([3.2, 2.8, 3.9, 2.1, 3.2, 4.5])
-
-print("el promedio es:", notas_arreglo1.mean().round(2))
-print("la mediana es:", np.median(notas_arreglo1))
-print("la suma de los valores es:", notas_arreglo1.sum())
-print("el mínimo es:", notas_arreglo1.min())
-print("el máximo es:", notas_arreglo1.max())
-print("la desviación estándar es:", notas_arreglo1.std().round(2))
-print("los valores únicos son:", np.unique(notas_arreglo1))
-
-el promedio es: 3.28
-la mediana es: 3.2
-la suma de los valores es: 19.7
-el mínimo es: 2.1
-el máximo es: 4.5
-la desviación estándar es: 0.76
-los valores únicos son: [2.1 2.8 3.2 3.9 4.5]
-
-Filtrar valores con mascaras booleanas 
-
-notas_arreglo1[notas_arreglo1 >= 3]
-print(aprobaron)
-
-[3.2 4.5 3.9]
 
